@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" ng-app="app">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="metawidget-core.min.js"></script>
+  <script type="text/javascript" src="metawidget-bootstrap.min.js"></script>
+  <script type="text/javascript" src="metawidget-angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="controller.js"></script>
+  <script type="text/javascript" src="directive.js"></script>
+
+  <style>
+    .pointer-on-hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body ng-controller="simpleController">
+  <div style="width: 700px; margin: 50px auto">
+    <form class="form-horizontal">
+      <metawidget ng-model="documentDetail" read-only="" config="metawidgetConfig"></metawidget>
+     
+    </form>
+  </div>
+
+  <button ng-click="save()">Save</button>
+  
+  <br></br>
+  <pre>{{ dispJson | json }}</pre>
+     
+</body>
+
+</html>
