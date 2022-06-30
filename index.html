@@ -5,9 +5,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
 
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
   <script type="text/javascript" src="metawidget-core.min.js"></script>
   <script type="text/javascript" src="metawidget-bootstrap.min.js"></script>
   <script type="text/javascript" src="metawidget-angular.min.js"></script>
@@ -23,17 +20,36 @@
 </head>
 
 <body ng-controller="simpleController">
-  <div style="width: 700px; margin: 50px auto">
-    <form class="form-horizontal">
-      <metawidget ng-model="documentDetail" read-only="" config="metawidgetConfig"></metawidget>
-     
-    </form>
+  <a href="index.html">Home Page</a>
+  <a href="person.html">Person Form</a>
+  <a href="transaction.html">Transaction Form</a>
+  <br></br>
+
+  <div>
+    I've created two forms for this exercise.
+    <p>
+        The first form takes in a person's name, age and address, as well as any of their childrens' names and age. 
+        This was built out of a piece of code which had editable tables, I've used to add the ability to add multiple children for a single person.
+    </p>
+    <p>
+        The second form creates a transaction record with the following fields:
+        <ul>
+            <li>
+                Time
+            </li>
+            <li>
+                Account number
+            </li>
+            <li>
+                Amount
+            </li>
+        </ul>
+    </p>
+    Both of these forms have a save button which saves the current state of the form and stores it in local storage.
   </div>
 
-  <button ng-click="save()">Save</button>
-  
-  <br></br>
-  <pre>{{ dispJson }}</pre>
+
+
      
 </body>
 

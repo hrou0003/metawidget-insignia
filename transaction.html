@@ -1,0 +1,80 @@
+<html ng-app="myApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <script src="http://metawidget.org/js/3.5/metawidget-core.min.js" type="text/javascript"></script>
+    <script src="http://metawidget.org/js/3.5/metawidget-angular.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        angular.module('myApp', ['metawidget'])
+            .controller('myController', function ($scope) {
+                $scope.metawidgetConfig = {
+                    inspector: new metawidget.inspector.JsonSchemaInspector({
+                        properties: {
+                            date: {
+                                type: 'date',
+                                required: true
+                            },
+                            time: {
+                                type: 'string',
+                                required: true,
+                                readOnly: true,
+                                value: new Date()
+                            },
+                            account: {
+                                type: 'number',
+                                required: true
+                            },
+                            amount: {
+                                type: 'number',
+                                minimum: 0
+                            },
+                            notes: {
+                                type: 'string',
+                                large: true
+                            }
+                        }
+                    })
+                }
+
+                $scope.dispJson = window.localStorage.getItem('tranJson')
+
+                $scope.save = function () {
+                    $scope.dispJson = JSON.stringify($scope.transaction, null, 2);
+                    window.localStorage.setItem('tranJson', $scope.dispJson);
+                    console.log($scope.dispJson)
+                }
+            });
+    </script>
+    <style>
+        #metawidget {
+            border: 1px solid #cccccc;
+            width: 250px;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 50px auto;
+            display: block;
+        }
+
+        #metawidget button {
+            display: block;
+            margin: 10px auto 0px;
+        }
+    </style>
+</head>
+<a href="index.html">Home Page</a>
+<a href="person.html">Person Form</a>
+<a href="transaction.html">Transaction Form</a>
+
+
+
+<body ng-controller="myController">
+    <metawidget id="metawidget" ng-model="transaction" config="metawidgetConfig">
+        <button ng-click="save()">Save</button>
+    </metawidget>
+    <pre>{{ dispJson }}</pre>
+    <script type="text/javascript">
+        document.getElementById('transactionTime').value = new Date();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" ng-app="app">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+
+  <script type="text/javascript" src="metawidget-core.min.js"></script>
+  <script type="text/javascript" src="metawidget-bootstrap.min.js"></script>
+  <script type="text/javascript" src="metawidget-angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="controller.js"></script>
+  <script type="text/javascript" src="directive.js"></script>
+
+  <style>
+    .pointer-on-hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body ng-controller="simpleController">
+  <a href="index.html">Home Page</a>
+  <a href="person.html">Person Form</a>
+  <a href="transaction.html">Transaction Form</a>
+
+ <div style="width: 700px; margin: 50px auto">
+    <form class="form-horizontal">
+      <metawidget ng-model="documentDetail" read-only="" config="metawidgetConfig"></metawidget>
+     
+    </form>
+  </div>
+
+
+  <!-- Added a save button to save the current form data into local storage and print to the console -->
+
+  <button ng-click="save()">Save</button>
+  
+  <br></br>
+  <pre>{{ dispJson }}</pre>
+     
+</body>
+
+</html>

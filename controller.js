@@ -143,8 +143,8 @@
      */
 
     $scope.resJson = [{
-      name: 'Bart',
-      age: '12',
+      name: '',
+      age: null,
     }];
 
     //THIS IS A WORKAROUND - ADDING MY JSON RESULT TO AN OBJECT FORMATTED LIKE METAWIDGET EXPECTS
